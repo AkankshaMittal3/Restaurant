@@ -64,13 +64,20 @@ tThree.innerHTML = tableThreeName;
 
 //table local storage
 var tbls = localStorage.getItem("tables");
-var arr = JSON.parse(tbls);
-if (arr.length == 0) {
-  obj.forEach(o => {
-    arr.push(o);
-  })
-  localStorage.setItem("tables", JSON.stringify(arr));
+if(!tbls)
+{
+  var arr = [...obj];
 }
+else{
+  var arr = JSON.parse(tbls);
+  if (arr.length == 0) {
+    obj.forEach(o => {
+      arr.push(o);
+    })
+  }
+}
+localStorage.setItem("tables", JSON.stringify(arr));
+
 
 //search menu
 function search() {
@@ -95,7 +102,7 @@ function searchTables() {
   let y = x.getElementsByTagName("div");
   console.log(y);
   for (i = 0; i < y.length; i++) {
-    
+
     if (!y[i].innerText.toLowerCase().includes(input)) {
       y[i].style.display = "none";
     }
@@ -224,11 +231,11 @@ function displayTableDetails(tName) {
         tRow.appendChild(tr);
       });
       var bill = document.getElementById("totalBill");
-    bill.innerHTML = "Total Amount = " +arr[index].total;
+      bill.innerHTML = "Total Amount = " + arr[index].total;
 
-    close = document.getElementById("closeSession");
-    var x = `<button class='btn cancel' onclick='closeSession("${tName}")'>CloseSession</button>`;
-        close.innerHTML = x;
+      close = document.getElementById("closeSession");
+      var x = `<button class='btn cancel' onclick='closeSession("${tName}")'>CloseSession</button>`;
+      close.innerHTML = x;
     }
   });
 }
@@ -262,8 +269,7 @@ function update(input, price, tableName, itemName) {
   window.location.reload();
 }
 
-function totalPrice(tableName)
-{
+function totalPrice(tableName) {
   var tbl = localStorage.getItem("tables");
   var arr = JSON.parse(tbl);
   var totalPrice = 0;
@@ -319,14 +325,13 @@ function closeTable() {
   document.getElementById("myForm").style.display = "none";
 }
 
-function closeSession(tableName)
-{
+function closeSession(tableName) {
   var tbl = localStorage.getItem("tables");
   var arr = JSON.parse(tbl);
   arr.forEach((element, index) => {
     if (element.name == tableName) {
       (arr[index].details).forEach((asd, i) => {
-          arr[index].details.splice(i, 1);
+        arr[index].details.splice(i, 1);
       });
     }
     arr[index].total = 0;

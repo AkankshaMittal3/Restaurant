@@ -1,7 +1,7 @@
 <html>
 
 <head>
-        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <title>Page Title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -190,12 +190,15 @@
                 </div>
             </div>
             <div id="table" style="margin-bottom: 10px">
-                <div class='open-button' id = "tableOne"onclick= "openTable('Table 1')" ondragover= "draggingOver(event)" ondrop= "dropped(event)">
-                    </div>
-                    <div class='open-button' id = "tableTwo"onclick= "openTable('Table 2')" ondragover= "draggingOver(event)" ondrop= "dropped(event)">
-                    </div>
-                    <div class='open-button' id = "tableThree"onclick= "openTable('Table 3')" ondragover= "draggingOver(event)" ondrop= "dropped(event)">
-                        </div>
+                <div class='open-button' id="tableOne" onclick="openTable('Table 1')" ondragover="draggingOver(event)"
+                    ondrop="dropped(event)">
+                </div>
+                <div class='open-button' id="tableTwo" onclick="openTable('Table 2')" ondragover="draggingOver(event)"
+                    ondrop="dropped(event)">
+                </div>
+                <div class='open-button' id="tableThree" onclick="openTable('Table 3')" ondragover="draggingOver(event)"
+                    ondrop="dropped(event)">
+                </div>
 
             </div>
         </div>
@@ -204,8 +207,7 @@
             <div class="topnav">
                 <div class="search-container">
                     <div>
-                        <input id="searchbar" onkeyup="search()" type="text" name="search"
-                            placeholder="Search">
+                        <input id="searchbar" onkeyup="search()" type="text" name="search" placeholder="Search">
                     </div>
                 </div>
             </div>
@@ -218,20 +220,20 @@
     <div class="form-popup" id="myForm">
         <form class="form-container">
             <h1>Login</h1>
-            <div id = "popup">
+            <div id="popup">
             </div>
-            <table style="width:100%" id = "tRow" >
+            <table style="width:100%" id="tRow">
                 <tr>
-                  <th>S.no.</th>
-                  <th>Items</th>
-                  <th>Price</th>
-                  <th>Servings</th>
+                    <th>S.no.</th>
+                    <th>Items</th>
+                    <th>Price</th>
+                    <th>Servings</th>
                 </tr>
-    
-              </table>  
-              <div id = "totalBill"></div>          
+
+            </table>
+            <div id="totalBill"></div>
             <button type="submit" class="btn cancel" onclick="closeTable()">Close</button>
-            <div id = "closeSession"></div>
+            <div id="closeSession"></div>
         </form>
     </div>
 </body>
